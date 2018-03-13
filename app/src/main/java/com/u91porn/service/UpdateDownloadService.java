@@ -165,7 +165,7 @@ public class UpdateDownloadService extends Service {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, String.valueOf(id));
         builder.setContentTitle("正在下载");
-        builder.setSmallIcon(R.mipmap.ic_launcher_round);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.layout_download_apk);
 
         remoteViews.setTextViewText(R.id.tv_download_filesize, fileSize);

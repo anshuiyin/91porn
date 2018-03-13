@@ -234,7 +234,12 @@ public class ParseForum91Porn {
             String imgUrl = element.attr("src");
             //只替换不为空且结尾为.jpg 但链接不完整的
             if (!TextUtils.isEmpty(imgUrl) && imgUrl.endsWith(".jpg") && !imgUrl.startsWith("http")) {
-                imgUrl = baseUrl + imgUrl;
+                if(baseUrl.endsWith("/")){
+                    imgUrl = baseUrl + imgUrl;
+                }else{
+                    imgUrl = baseUrl + "/" + imgUrl;
+                }
+
                 element.attr("src", imgUrl);
                 stringList.add(imgUrl);
             } else if (!TextUtils.isEmpty(element.attr("file"))) {

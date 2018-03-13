@@ -319,7 +319,21 @@ public class SettingActivity extends MvpActivity<SettingView, SettingPresenter> 
         AppCompatButton backAppCompatButton = view.findViewById(R.id.bt_dialog_address_setting_back);
         AppCompatButton testAppCompatButton = view.findViewById(R.id.bt_dialog_address_setting_test);
         final AppCompatAutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.atv_dialog_address_setting_address);
+        switch (key) {
+            case AppPreferencesHelper.KEY_SP_PORN_91_VIDEO_ADDRESS:
+                testBaseUrl = dataManager.getPorn91VideoAddress();
+                break;
+            case AppPreferencesHelper.KEY_SP_FORUM_91_PORN_ADDRESS:
+                testBaseUrl = dataManager.getPorn91ForumAddress();
+                break;
+            case AppPreferencesHelper.KEY_SP_PIG_AV_ADDRESS:
+                testBaseUrl = dataManager.getPigAvAddress();
+                break;
+            default:
+        }
         autoCompleteTextView.setText(testBaseUrl);
+
+
         if (!TextUtils.isEmpty(testBaseUrl)) {
             autoCompleteTextView.setSelection(testBaseUrl.length());
         }

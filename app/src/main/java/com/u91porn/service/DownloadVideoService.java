@@ -58,7 +58,7 @@ public class DownloadVideoService extends Service implements DownloadManager.Dow
     private void startNotification(String videoName, int progress, String fileSize, int speed) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, String.valueOf(id));
         builder.setContentTitle("正在下载");
-        builder.setSmallIcon(R.mipmap.ic_launcher_round);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setProgress(100, progress, false);
         builder.setContentText(fileSize + "--" + speed + "KB/s");
         builder.setContentInfo(videoName);
