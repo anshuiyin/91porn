@@ -1,6 +1,7 @@
 package com.u91porn.parser;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.orhanobut.logger.Logger;
 import com.u91porn.adapter.BaseHeaderAdapter;
@@ -239,11 +240,14 @@ public class ParseForum91Porn {
                 }else{
                     imgUrl = baseUrl + "/" + imgUrl;
                 }
-
                 element.attr("src", imgUrl);
                 stringList.add(imgUrl);
             } else if (!TextUtils.isEmpty(element.attr("file"))) {
-                imgUrl = baseUrl + element.attr("file");
+                if(baseUrl.endsWith("/")){
+                    imgUrl = baseUrl + element.attr("file");
+                }else{
+                    imgUrl = baseUrl + "/" + element.attr("file");
+                }
                 element.attr("src", imgUrl);
                 stringList.add(imgUrl);
             }
